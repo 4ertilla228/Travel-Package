@@ -1,32 +1,32 @@
 public class ItineraryTextBuilder implements TravelPackageBuilder {
-    private final StringBuilder itenerary = new StringBuilder("=== Travel Itinerary ===\n");
+    private final StringBuilder itinerary = new StringBuilder("=== Travel Itinerary ===\n");
 
     @Override
     public ItineraryTextBuilder setDestination(String destination){
-        itenerary.append("Destination: ").append(destination).append("\n");
+        itinerary.append("Destination: ").append(destination).append("\n");
         return this;
     }
 
     @Override
     public ItineraryTextBuilder setDays(int days){
-        itenerary.append("Days: ").append(days).append("\n");
+        itinerary.append("Days: ").append(days).append("\n");
         return this;
     }
     @Override
     public ItineraryTextBuilder setTransport(String transport){
-        itenerary.append("Transport: ").append(transport).append("\n");
+        itinerary.append("Transport: ").append(transport).append("\n");
         return this;
     }
     @Override
     public ItineraryTextBuilder setAccommodation(String accommodation){
-        itenerary.append("Hotel: ").append(accommodation).append("\n");
+        itinerary.append("Hotel: ").append(accommodation).append("\n");
         return this;
     }
 
     public String getResult(){
         if (itinerary.length() < 30){
-            return new IllegalStateException("Val error: Itinerary is empty, components are missing");
+            throw new IllegalStateException("Val error: Itinerary is empty, components are missing");
         }
-        return itenerary.toString();
+        return itinerary.toString();
     }
 }
