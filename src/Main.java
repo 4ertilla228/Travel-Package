@@ -13,6 +13,7 @@ public class Main {
 
         PackageObjectBuilder objectBuilder = new PackageObjectBuilder();
         ItineraryTextBuilder textBuilder = new ItineraryTextBuilder();
+        JsonPackageBuilder jsonBuilder = new JsonPackageBuilder();
 
         if (choice == 1) {
             director.makeLuxuryVacation(objectBuilder);
@@ -26,6 +27,13 @@ public class Main {
             return;
         }
 
+        if (choice == 1) {
+            director.makeLuxuryVacation(jsonBuilder);
+        } else if (choice == 2) {
+            director.makeWeekendGetaway(jsonBuilder);
+        }
+
+
         TravelPackage travelPackage = objectBuilder.getResult();
         System.out.println("\n--- Representation 1: Object ---");
         System.out.println(travelPackage.toString());
@@ -33,6 +41,10 @@ public class Main {
         String itinerary = textBuilder.getResult();
         System.out.println("\n--- Representation 2: Itinerary ---");
         System.out.println(itinerary);
+
+        String jsonOutput = jsonBuilder.getResult();
+        System.out.println("\n--- Representation 3: JSON Format ---");
+        System.out.println(jsonOutput);
 
         scanner.close();
     }
